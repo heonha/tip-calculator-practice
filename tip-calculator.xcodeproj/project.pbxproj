@@ -9,19 +9,38 @@
 /* Begin PBXBuildFile section */
 		396B236529FE5FFD009CD810 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 396B236429FE5FFD009CD810 /* AppDelegate.swift */; };
 		396B236729FE5FFD009CD810 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 396B236629FE5FFD009CD810 /* SceneDelegate.swift */; };
-		396B236929FE5FFD009CD810 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 396B236829FE5FFD009CD810 /* ViewController.swift */; };
+		396B236929FE5FFD009CD810 /* CalculatorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 396B236829FE5FFD009CD810 /* CalculatorViewController.swift */; };
 		396B236E29FE5FFE009CD810 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 396B236D29FE5FFE009CD810 /* Assets.xcassets */; };
 		396B237129FE5FFE009CD810 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 396B236F29FE5FFE009CD810 /* LaunchScreen.storyboard */; };
+		39F9F3472A01314E005286C4 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 39F9F3462A01314E005286C4 /* SnapKit */; };
+		39F9F34A2A013817005286C4 /* LogoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39F9F3492A013817005286C4 /* LogoView.swift */; };
+		39F9F34C2A01382D005286C4 /* ResultView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39F9F34B2A01382D005286C4 /* ResultView.swift */; };
+		39F9F34E2A01383D005286C4 /* BillInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39F9F34D2A01383D005286C4 /* BillInputView.swift */; };
+		39F9F3502A013854005286C4 /* TipInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39F9F34F2A013854005286C4 /* TipInputView.swift */; };
+		39F9F3522A013862005286C4 /* SplitInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39F9F3512A013862005286C4 /* SplitInputView.swift */; };
+		39F9F3552A0144B0005286C4 /* AppFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39F9F3542A0144B0005286C4 /* AppFont.swift */; };
+		39F9F3572A0144FD005286C4 /* AppColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39F9F3562A0144FD005286C4 /* AppColor.swift */; };
+		39F9F35A2A01455D005286C4 /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39F9F3592A01455D005286C4 /* UIColor+Extension.swift */; };
+		39F9F35D2A0151E1005286C4 /* LabelFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39F9F35C2A0151E1005286C4 /* LabelFactory.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		396B236129FE5FFD009CD810 /* tip-calculator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "tip-calculator.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		396B236429FE5FFD009CD810 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		396B236629FE5FFD009CD810 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		396B236829FE5FFD009CD810 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		396B236829FE5FFD009CD810 /* CalculatorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalculatorViewController.swift; sourceTree = "<group>"; };
 		396B236D29FE5FFE009CD810 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		396B237029FE5FFE009CD810 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		396B237229FE5FFE009CD810 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		39F9F3492A013817005286C4 /* LogoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogoView.swift; sourceTree = "<group>"; };
+		39F9F34B2A01382D005286C4 /* ResultView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultView.swift; sourceTree = "<group>"; };
+		39F9F34D2A01383D005286C4 /* BillInputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BillInputView.swift; sourceTree = "<group>"; };
+		39F9F34F2A013854005286C4 /* TipInputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TipInputView.swift; sourceTree = "<group>"; };
+		39F9F3512A013862005286C4 /* SplitInputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplitInputView.swift; sourceTree = "<group>"; };
+		39F9F3542A0144B0005286C4 /* AppFont.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppFont.swift; sourceTree = "<group>"; };
+		39F9F3562A0144FD005286C4 /* AppColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppColor.swift; sourceTree = "<group>"; };
+		39F9F3592A01455D005286C4 /* UIColor+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
+		39F9F35C2A0151E1005286C4 /* LabelFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelFactory.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -29,6 +48,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				39F9F3472A01314E005286C4 /* SnapKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -54,11 +74,14 @@
 		396B236329FE5FFD009CD810 /* tip-calculator */ = {
 			isa = PBXGroup;
 			children = (
+				39F9F35B2A0151DB005286C4 /* Factory */,
 				396B236429FE5FFD009CD810 /* AppDelegate.swift */,
 				396B236629FE5FFD009CD810 /* SceneDelegate.swift */,
-				396B236829FE5FFD009CD810 /* ViewController.swift */,
-				396B237929FEBE57009CD810 /* config */,
-				396B237829FEBE50009CD810 /* View */,
+				396B236829FE5FFD009CD810 /* CalculatorViewController.swift */,
+				39F9F3482A013811005286C4 /* Views */,
+				39F9F3532A0144A0005286C4 /* Configs */,
+				39F9F3582A014553005286C4 /* Extensions */,
+				39F9F3592A01455D005286C4 /* UIColor+Extension.swift */,
 				396B236D29FE5FFE009CD810 /* Assets.xcassets */,
 				396B236F29FE5FFE009CD810 /* LaunchScreen.storyboard */,
 				396B237229FE5FFE009CD810 /* Info.plist */,
@@ -66,18 +89,40 @@
 			path = "tip-calculator";
 			sourceTree = "<group>";
 		};
-		396B237829FEBE50009CD810 /* View */ = {
+		39F9F3482A013811005286C4 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				39F9F3492A013817005286C4 /* LogoView.swift */,
+				39F9F34B2A01382D005286C4 /* ResultView.swift */,
+				39F9F34D2A01383D005286C4 /* BillInputView.swift */,
+				39F9F34F2A013854005286C4 /* TipInputView.swift */,
+				39F9F3512A013862005286C4 /* SplitInputView.swift */,
 			);
-			path = View;
+			path = Views;
 			sourceTree = "<group>";
 		};
-		396B237929FEBE57009CD810 /* config */ = {
+		39F9F3532A0144A0005286C4 /* Configs */ = {
+			isa = PBXGroup;
+			children = (
+				39F9F3542A0144B0005286C4 /* AppFont.swift */,
+				39F9F3562A0144FD005286C4 /* AppColor.swift */,
+			);
+			path = Configs;
+			sourceTree = "<group>";
+		};
+		39F9F3582A014553005286C4 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
 			);
-			path = config;
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		39F9F35B2A0151DB005286C4 /* Factory */ = {
+			isa = PBXGroup;
+			children = (
+				39F9F35C2A0151E1005286C4 /* LabelFactory.swift */,
+			);
+			path = Factory;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -96,6 +141,9 @@
 			dependencies = (
 			);
 			name = "tip-calculator";
+			packageProductDependencies = (
+				39F9F3462A01314E005286C4 /* SnapKit */,
+			);
 			productName = "tip-calculator";
 			productReference = 396B236129FE5FFD009CD810 /* tip-calculator.app */;
 			productType = "com.apple.product-type.application";
@@ -124,6 +172,9 @@
 				Base,
 			);
 			mainGroup = 396B235829FE5FFD009CD810;
+			packageReferences = (
+				39F9F3452A01314E005286C4 /* XCRemoteSwiftPackageReference "SnapKit" */,
+			);
 			productRefGroup = 396B236229FE5FFD009CD810 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -150,9 +201,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				396B236929FE5FFD009CD810 /* ViewController.swift in Sources */,
+				396B236929FE5FFD009CD810 /* CalculatorViewController.swift in Sources */,
+				39F9F3572A0144FD005286C4 /* AppColor.swift in Sources */,
+				39F9F34A2A013817005286C4 /* LogoView.swift in Sources */,
+				39F9F35A2A01455D005286C4 /* UIColor+Extension.swift in Sources */,
+				39F9F34E2A01383D005286C4 /* BillInputView.swift in Sources */,
+				39F9F34C2A01382D005286C4 /* ResultView.swift in Sources */,
 				396B236529FE5FFD009CD810 /* AppDelegate.swift in Sources */,
+				39F9F3552A0144B0005286C4 /* AppFont.swift in Sources */,
 				396B236729FE5FFD009CD810 /* SceneDelegate.swift in Sources */,
+				39F9F35D2A0151E1005286C4 /* LabelFactory.swift in Sources */,
+				39F9F3522A013862005286C4 /* SplitInputView.swift in Sources */,
+				39F9F3502A013854005286C4 /* TipInputView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -362,6 +422,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		39F9F3452A01314E005286C4 /* XCRemoteSwiftPackageReference "SnapKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SnapKit/SnapKit.git";
+			requirement = {
+				kind = upToNextMinorVersion;
+				minimumVersion = 5.6.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		39F9F3462A01314E005286C4 /* SnapKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 39F9F3452A01314E005286C4 /* XCRemoteSwiftPackageReference "SnapKit" */;
+			productName = SnapKit;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 396B235929FE5FFD009CD810 /* Project object */;
 }

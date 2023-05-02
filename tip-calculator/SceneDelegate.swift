@@ -15,7 +15,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         guard let windowScene = (scene as? UIWindowScene) else { return }
         window = UIWindow(windowScene: windowScene)
         window?.backgroundColor = .clear
-        let mainViewController = ViewController()
+        let mainViewController = CalculatorViewController()
         window?.rootViewController = mainViewController
         window?.makeKeyAndVisible()
     }
