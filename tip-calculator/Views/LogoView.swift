@@ -11,29 +11,16 @@ import SnapKit
 
 class LogoView: UIView {
 
-    let imageView = {
+    // ImageView
+    let logoImageView = {
         let iv = UIImageView()
         iv.translatesAutoresizingMaskIntoConstraints = false
-        iv.image = UIImage(named: "calculator")!
+        iv.image = UIImage(named: "calculator") ?? UIImage()
         iv.contentMode = .scaleAspectFit
         return iv
     }()
 
-    lazy var hStackView = {
-        let sv = UIStackView()
-        sv.translatesAutoresizingMaskIntoConstraints = false
-        sv.axis = .horizontal
-        sv.alignment = .center
-        sv.spacing = 4
-        let views = [imageView, vStackView]
-        imageView.snp.makeConstraints { make in
-            make.height.width.equalTo(48)
-        }
-        views.forEach { sv.addArrangedSubview($0) }
-
-        return sv
-    }()
-
+    // Labels
     private let topLabel: UILabel = {
         let text = NSMutableAttributedString(string: "Mr TIP", attributes: [ .font : AppFont.regular()])
         text.addAttributes([ .font : AppFont.bold(size: 20) ], range: NSRange.init(location: 3, length: 3))
@@ -55,18 +42,29 @@ class LogoView: UIView {
         return label
     }()
 
+
+    // Stacks
+    lazy var hStackView = {
+        let sv = UIStackView(arrangedSubviews: [logoImageView, vStackView])
+        sv.translatesAutoresizingMaskIntoConstraints = false
+        sv.axis = .horizontal
+        sv.alignment = .center
+        sv.spacing = 4
+
+        logoImageView.snp.makeConstraints { make in
+            make.height.width.equalTo(48)
+        }
+
+        return sv
+    }()
+
+
     private lazy var vStackView = {
-        let sv = UIStackView()
+        let sv = UIStackView(arrangedSubviews: [topLabel, bottomLabel])
         sv.translatesAutoresizingMaskIntoConstraints = false
         sv.axis = .vertical
         sv.spacing = 2
         sv.alignment = .leading
-
-
-
-
-        let labels = [topLabel, bottomLabel]
-        labels.forEach { sv.addArrangedSubview($0) }
 
         return sv
     }()
