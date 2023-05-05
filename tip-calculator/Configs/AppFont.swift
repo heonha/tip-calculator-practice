@@ -9,17 +9,17 @@ import UIKit
 
 enum AppFont {
 
-    static func regular(size: CGFloat = 16) -> UIFont {
+    static func regular(ofSize size: CGFloat = 16) -> UIFont {
         return UIFont(name: "Avenir Medium", size: size)
         ?? UIFont.systemFont(ofSize: size)
     }
 
-    static func bold(size: CGFloat = 16) -> UIFont {
+    static func bold(ofSize size: CGFloat = 16) -> UIFont {
         return UIFont(name: "Avenir Next Bold", size: size)
         ?? UIFont.systemFont(ofSize: size)
     }
 
-    static func demiBold(size: CGFloat = 16) -> UIFont {
+    static func demiBold(ofSize size: CGFloat = 16) -> UIFont {
         return UIFont(name: "Avenir Next Demi Bold", size: size)
         ?? UIFont.systemFont(ofSize: size)
     }

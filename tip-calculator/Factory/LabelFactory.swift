@@ -13,16 +13,17 @@ struct LabelFactory {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.text = text
-        label.textAlignment = .center
+        label.font = font
+        label.textAlignment = alignment
 
         return label
     }
 
-    static func build(attributedText: NSAttributedString, alignment: NSTextAlignment, font: UIFont) -> UILabel {
+    static func build(attributedText: NSAttributedString, alignment: NSTextAlignment) -> UILabel {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.attributedText = attributedText
-        label.textAlignment = .center
+        label.textAlignment = alignment
 
         return label
     }

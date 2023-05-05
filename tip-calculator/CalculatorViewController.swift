@@ -41,7 +41,7 @@ class CalculatorViewController: UIViewController {
         vStackView.snp.makeConstraints { make in
             make.top.equalTo(view.safeAreaLayoutGuide).inset(16)
             make.bottom.equalTo(view.safeAreaLayoutGuide).inset(16)
-            make.leading.trailing.equalToSuperview().inset(16)
+            make.leading.trailing.equalToSuperview().inset(32)
         }
     }
 

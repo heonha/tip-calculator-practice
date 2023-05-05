@@ -23,12 +23,11 @@ class LogoView: UIView {
     // Labels
     private let topLabel: UILabel = {
         let text = NSMutableAttributedString(string: "Mr TIP", attributes: [ .font : AppFont.regular()])
-        text.addAttributes([ .font : AppFont.bold(size: 20) ], range: NSRange.init(location: 3, length: 3))
+        text.addAttributes([ .font : AppFont.bold(ofSize: 24) ], range: NSRange.init(location: 3, length: 3))
 
         let label = LabelFactory.build(
             attributedText: text,
-            alignment: .center,
-            font: AppFont.regular())
+            alignment: .center)
 
         return label
     }()

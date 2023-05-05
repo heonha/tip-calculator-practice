@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		393AF0FC2A04E8AB00F913CF /* PreviewProviderForUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 393AF0FB2A04E8AB00F913CF /* PreviewProviderForUIView.swift */; };
+		393AF0FE2A04E8C100F913CF /* PreviewProviderForUIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 393AF0FD2A04E8C100F913CF /* PreviewProviderForUIViewController.swift */; };
+		393AF1002A04F1B600F913CF /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 393AF0FF2A04F1B600F913CF /* UIView+Extension.swift */; };
+		393AF1022A04F6E300F913CF /* AmountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 393AF1012A04F6E300F913CF /* AmountView.swift */; };
 		396B236529FE5FFD009CD810 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 396B236429FE5FFD009CD810 /* AppDelegate.swift */; };
 		396B236729FE5FFD009CD810 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 396B236629FE5FFD009CD810 /* SceneDelegate.swift */; };
 		396B236929FE5FFD009CD810 /* CalculatorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 396B236829FE5FFD009CD810 /* CalculatorViewController.swift */; };
@@ -25,6 +29,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		393AF0FB2A04E8AB00F913CF /* PreviewProviderForUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewProviderForUIView.swift; sourceTree = "<group>"; };
+		393AF0FD2A04E8C100F913CF /* PreviewProviderForUIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewProviderForUIViewController.swift; sourceTree = "<group>"; };
+		393AF0FF2A04F1B600F913CF /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
+		393AF1012A04F6E300F913CF /* AmountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AmountView.swift; sourceTree = "<group>"; };
 		396B236129FE5FFD009CD810 /* tip-calculator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "tip-calculator.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		396B236429FE5FFD009CD810 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		396B236629FE5FFD009CD810 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -55,6 +63,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		393AF0FA2A04E89600F913CF /* PreviewProvider */ = {
+			isa = PBXGroup;
+			children = (
+				393AF0FB2A04E8AB00F913CF /* PreviewProviderForUIView.swift */,
+				393AF0FD2A04E8C100F913CF /* PreviewProviderForUIViewController.swift */,
+			);
+			path = PreviewProvider;
+			sourceTree = "<group>";
+		};
 		396B235829FE5FFD009CD810 = {
 			isa = PBXGroup;
 			children = (
@@ -74,6 +91,7 @@
 		396B236329FE5FFD009CD810 /* tip-calculator */ = {
 			isa = PBXGroup;
 			children = (
+				393AF0FA2A04E89600F913CF /* PreviewProvider */,
 				39F9F35B2A0151DB005286C4 /* Factory */,
 				396B236429FE5FFD009CD810 /* AppDelegate.swift */,
 				396B236629FE5FFD009CD810 /* SceneDelegate.swift */,
@@ -97,6 +115,7 @@
 				39F9F34D2A01383D005286C4 /* BillInputView.swift */,
 				39F9F34F2A013854005286C4 /* TipInputView.swift */,
 				39F9F3512A013862005286C4 /* SplitInputView.swift */,
+				393AF1012A04F6E300F913CF /* AmountView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -113,6 +132,7 @@
 		39F9F3582A014553005286C4 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				393AF0FF2A04F1B600F913CF /* UIView+Extension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -201,18 +221,22 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				393AF0FE2A04E8C100F913CF /* PreviewProviderForUIViewController.swift in Sources */,
 				396B236929FE5FFD009CD810 /* CalculatorViewController.swift in Sources */,
 				39F9F3572A0144FD005286C4 /* AppColor.swift in Sources */,
+				393AF1002A04F1B600F913CF /* UIView+Extension.swift in Sources */,
 				39F9F34A2A013817005286C4 /* LogoView.swift in Sources */,
 				39F9F35A2A01455D005286C4 /* UIColor+Extension.swift in Sources */,
 				39F9F34E2A01383D005286C4 /* BillInputView.swift in Sources */,
 				39F9F34C2A01382D005286C4 /* ResultView.swift in Sources */,
 				396B236529FE5FFD009CD810 /* AppDelegate.swift in Sources */,
 				39F9F3552A0144B0005286C4 /* AppFont.swift in Sources */,
+				393AF1022A04F6E300F913CF /* AmountView.swift in Sources */,
 				396B236729FE5FFD009CD810 /* SceneDelegate.swift in Sources */,
 				39F9F35D2A0151E1005286C4 /* LabelFactory.swift in Sources */,
 				39F9F3522A013862005286C4 /* SplitInputView.swift in Sources */,
 				39F9F3502A013854005286C4 /* TipInputView.swift in Sources */,
+				393AF0FC2A04E8AB00F913CF /* PreviewProviderForUIView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
