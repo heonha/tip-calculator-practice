@@ -9,7 +9,7 @@ import UIKit
 
 struct LabelFactory {
 
-    static func build(text: String, alignment: NSTextAlignment, font: UIFont) -> UILabel {
+    static func build(text: String, alignment: NSTextAlignment = .center, font: UIFont) -> UILabel {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.text = text

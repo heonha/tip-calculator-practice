@@ -111,5 +111,3 @@ struct Result_Previews: PreviewProvider {
 
     }
 }
-
-
