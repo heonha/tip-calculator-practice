@@ -12,6 +12,7 @@
 		393AF1002A04F1B600F913CF /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 393AF0FF2A04F1B600F913CF /* UIView+Extension.swift */; };
 		393AF1022A04F6E300F913CF /* AmountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 393AF1012A04F6E300F913CF /* AmountView.swift */; };
 		393AF1042A05239100F913CF /* HeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 393AF1032A05239100F913CF /* HeaderView.swift */; };
+		393AF1072A052F3D00F913CF /* Tip.swift in Sources */ = {isa = PBXBuildFile; fileRef = 393AF1062A052F3D00F913CF /* Tip.swift */; };
 		396B236529FE5FFD009CD810 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 396B236429FE5FFD009CD810 /* AppDelegate.swift */; };
 		396B236729FE5FFD009CD810 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 396B236629FE5FFD009CD810 /* SceneDelegate.swift */; };
 		396B236929FE5FFD009CD810 /* CalculatorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 396B236829FE5FFD009CD810 /* CalculatorViewController.swift */; };
@@ -35,6 +36,7 @@
 		393AF0FF2A04F1B600F913CF /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
 		393AF1012A04F6E300F913CF /* AmountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AmountView.swift; sourceTree = "<group>"; };
 		393AF1032A05239100F913CF /* HeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderView.swift; sourceTree = "<group>"; };
+		393AF1062A052F3D00F913CF /* Tip.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tip.swift; sourceTree = "<group>"; };
 		396B236129FE5FFD009CD810 /* tip-calculator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "tip-calculator.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		396B236429FE5FFD009CD810 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		396B236629FE5FFD009CD810 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -74,6 +76,14 @@
 			path = PreviewProvider;
 			sourceTree = "<group>";
 		};
+		393AF1052A052F3A00F913CF /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				393AF1062A052F3D00F913CF /* Tip.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		396B235829FE5FFD009CD810 = {
 			isa = PBXGroup;
 			children = (
@@ -94,6 +104,7 @@
 			isa = PBXGroup;
 			children = (
 				393AF0FA2A04E89600F913CF /* PreviewProvider */,
+				393AF1052A052F3A00F913CF /* Model */,
 				39F9F35B2A0151DB005286C4 /* Factory */,
 				396B236429FE5FFD009CD810 /* AppDelegate.swift */,
 				396B236629FE5FFD009CD810 /* SceneDelegate.swift */,
@@ -239,6 +250,7 @@
 				396B236729FE5FFD009CD810 /* SceneDelegate.swift in Sources */,
 				39F9F35D2A0151E1005286C4 /* LabelFactory.swift in Sources */,
 				39F9F3522A013862005286C4 /* SplitInputView.swift in Sources */,
+				393AF1072A052F3D00F913CF /* Tip.swift in Sources */,
 				39F9F3502A013854005286C4 /* TipInputView.swift in Sources */,
 				393AF0FC2A04E8AB00F913CF /* PreviewProviderForUIView.swift in Sources */,
 			);
