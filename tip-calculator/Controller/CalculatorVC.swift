@@ -1,5 +1,5 @@
 //
-//  CalculatorViewController.swift
+//  CalculatorVC.swift
 //  tip-calculator
 //
 //  Created by Heonjin Ha on 2023/04/30.
@@ -9,7 +9,7 @@ import UIKit
 import SnapKit
 import Combine
 
-class CalculatorViewController: UIViewController {
+class CalculatorVC: UIViewController {
 
     private let logoView = LogoView()
     private let resultView = ResultView()
@@ -50,15 +50,15 @@ class CalculatorViewController: UIViewController {
     }
 
     private func bind() {
-
         let input = CalculatorVM.Input(
-            billPublisher: Just(10).eraseToAnyPublisher(),
+            billPublisher: billInputView.textFieldPublisher,
             tipPublisher: Just(Tip.tenPercent).eraseToAnyPublisher(),
             splitPublisher: Just(5).eraseToAnyPublisher())
 
         let output = vm.transform(input: input)
         output.updateViewController.sink { result in
             print(result)
+
         }.store(in: &cancellable)
     }
 }

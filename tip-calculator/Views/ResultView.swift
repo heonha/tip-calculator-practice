@@ -105,7 +105,7 @@ struct Result_Previews: PreviewProvider {
     static var previews: some View {
 
         ZStack {
-            PreviewProviderForUIViewController(vc: CalculatorViewController())
+            PreviewProviderForUIViewController(vc: CalculatorVC())
         }
         .ignoresSafeArea()
 

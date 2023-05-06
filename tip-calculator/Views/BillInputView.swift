@@ -7,6 +7,8 @@
 
 import UIKit
 import SnapKit
+import Combine
+import CombineCocoa
 
 class BillInputView: UIView {
 
@@ -50,14 +52,29 @@ class BillInputView: UIView {
         return view
     }()
 
+    private var cancellables = Set<AnyCancellable>()
+
+    private var textFieldSubject = PassthroughSubject<Double, Never>()
+
+    var textFieldPublisher: AnyPublisher<Double, Never> {
+        return textFieldSubject.eraseToAnyPublisher()
+    }
 
     override init(frame: CGRect) {
         super.init(frame: frame)
         layout()
+        observe()
     }
 
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+
+    private func observe() {
+        textField.textPublisher.sink { [weak self] value in
+            self?.textFieldSubject.send(value?.doubleValue ?? 0.0)
+        }
+        .store(in: &cancellables)
     }
 
     private func layout() {
@@ -90,10 +107,7 @@ class BillInputView: UIView {
             make.top.bottom.equalToSuperview()
             make.leading.equalTo(currencyDenominationLabel.snp.trailing).offset(16)
             make.trailing.equalToSuperview().offset(-16)
-
         }
-
-
     }
 
     @objc private func doneButtonTapped() {
