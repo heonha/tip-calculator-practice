@@ -73,7 +73,7 @@ class TipInputView: UIView {
 
     }
 
-    func buildTipButton(tip: Tip) -> UIButton {
+    private func buildTipButton(tip: Tip) -> UIButton {
 
         var attrString: NSMutableAttributedString
         if tip.stringValue.contains("%") {

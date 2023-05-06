@@ -12,8 +12,8 @@ class HeaderView: UIView {
     private let topTitle: String
     private let bottomTitle: String
 
-    private lazy var topLabel = LabelFactory.build(text: topTitle, font: AppFont.bold(ofSize: 18))
-    private lazy var bottomLabel = LabelFactory.build(text: bottomTitle, font: AppFont.regular(ofSize: 18))
+    private lazy var topLabel = LabelFactory.build(text: topTitle, font: AppFont.bold(ofSize: 17))
+    private lazy var bottomLabel = LabelFactory.build(text: bottomTitle, font: AppFont.regular(ofSize: 17))
 
     private let topSpacerView = UIView()
     private let bottomSpacerView = UIView()

@@ -7,6 +7,7 @@
 
 import UIKit
 import SnapKit
+import Combine
 
 class CalculatorViewController: UIViewController {
 
@@ -16,11 +17,14 @@ class CalculatorViewController: UIViewController {
     private let tipInputView = TipInputView()
     private let splitInputView = SplitInputView()
 
+    private let vm = CalculatorVM()
+    private var cancellable = Set<AnyCancellable>()
+
     private lazy var vStackView: UIStackView = {
         let sv = UIStackView()
         sv.translatesAutoresizingMaskIntoConstraints = false
         sv.axis = .vertical
-        sv.spacing = 16
+        sv.spacing = 36
         sv.addArrangedSubview(logoView)
         let views = [logoView, resultView, billInputView, tipInputView, splitInputView]
         views.forEach { sv.addArrangedSubview($0) }
@@ -29,12 +33,12 @@ class CalculatorViewController: UIViewController {
         return sv
     }()
 
-
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = .secondarySystemBackground
         self.view.addSubview(vStackView)
         layout()
+        bind()
     }
 
     private func layout() {
@@ -45,5 +49,16 @@ class CalculatorViewController: UIViewController {
         }
     }
 
+    private func bind() {
 
+        let input = CalculatorVM.Input(
+            billPublisher: Just(10).eraseToAnyPublisher(),
+            tipPublisher: Just(Tip.tenPercent).eraseToAnyPublisher(),
+            splitPublisher: Just(5).eraseToAnyPublisher())
+
+        let output = vm.transform(input: input)
+        output.updateViewController.sink { result in
+            print(result)
+        }.store(in: &cancellable)
+    }
 }
