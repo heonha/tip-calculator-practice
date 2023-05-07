@@ -62,7 +62,7 @@ class TipInputView: UIView {
         button.addCornerRadius(radius: 8)
         button.tapPublisher
             .sink { [weak self] _ in
-            self?.customTapHandler()
+            self?.customTipHandler()
             }.store(in: &cancellables)
         return button
     }()
@@ -93,6 +93,7 @@ class TipInputView: UIView {
     override init(frame: CGRect) {
         super.init(frame: frame)
         layout()
+        observe()
     }
 
     required init?(coder: NSCoder) {
@@ -100,7 +101,26 @@ class TipInputView: UIView {
     }
 
     private func observe() {
+        tipSubject.sink { [unowned self] tip in
 
+            self.resetButtons()
+
+            switch tip {
+            case .none:
+                break
+            case .tenPercent:
+                tenPercentButton.backgroundColor = AppColor.secondary
+            case .fiftenPercent:
+                fiftenButton.backgroundColor = AppColor.secondary
+            case .twentyPercent:
+                twentyPercentButton.backgroundColor = AppColor.secondary
+            case .custom(let value):
+                let text = NSMutableAttributedString(string: "$\(value)", attributes: [.font: AppFont.bold(ofSize: 20), .foregroundColor: UIColor.white])
+                text.addAttributes([.font: AppFont.bold(ofSize: 16)], range: NSMakeRange(0, 1))
+                customTipButton.setAttributedTitle(text, for: .normal)
+                customTipButton.backgroundColor = AppColor.secondary
+            }
+        }.store(in: &cancellables)
     }
 
     private func layout() {
@@ -141,13 +161,13 @@ class TipInputView: UIView {
         return button
     }
 
-    func customTapHandler() {
+    private func customTipHandler() {
         let alertController = UIAlertController(
-            title: "Tip을 입력하세요.",
+            title: "총 Tip을 입력하세요.",
             message: nil,
             preferredStyle: .alert)
         alertController.addTextField { textField in
-            textField.placeholder = "팁 비율 입력"
+            textField.placeholder = "팁($) 입력"
             textField.keyboardType = .numberPad
         }
 
@@ -160,6 +180,25 @@ class TipInputView: UIView {
         [cancelAction, applyAction].forEach { alertController.addAction($0) }
 
         self.parentViewController?.present(alertController, animated: true)
+
+    }
+
+    private func resetButtons() {
+        [tenPercentButton,
+         fiftenButton,
+         twentyPercentButton,
+         customTipButton
+        ].forEach {
+            $0.backgroundColor = AppColor.primary
+        }
+
+        let attrString = NSMutableAttributedString(string: "Custom tip",
+                                                   attributes: [
+                                                    .font: AppFont.bold(ofSize: 20),
+                                                    .foregroundColor: UIColor.white
+                                                   ])
+        customTipButton.setAttributedTitle(attrString, for: .normal)
+        customTipButton.backgroundColor = AppColor.primary
 
 
     }
