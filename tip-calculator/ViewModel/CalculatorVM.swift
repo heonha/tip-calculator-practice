@@ -23,13 +23,37 @@ class CalculatorVM {
     private var cancellables = Set<AnyCancellable>()
 
     func transform(input: Input) -> Output {
-        input.splitPublisher.sink { value in
-            print("VM received Value: \(value)")
-        }.store(in: &cancellables)
 
-        let result = ResultTip(totalTipPerPerson: 3000, totalBill: 9000, totalTip: 3)
+        let updatePublishers = Publishers.CombineLatest3(
+            input.billPublisher,
+            input.tipPublisher,
+            input.splitPublisher)
+            .flatMap { [unowned self] (bill, tip, split) in
+                let totalTip = getTipAmount(bill: bill, tip: tip)
+                let totalBill = bill + totalTip
+                let personPerBill = totalBill / split.doubleValue
+                let result = ResultTip(totalTipPerPerson: personPerBill, totalBill: totalBill, totalTip: totalTip)
 
-        return Output(updateViewController: Just(result).eraseToAnyPublisher())
+                return Just(result)
+            }.eraseToAnyPublisher()
+
+        return Output(updateViewController: updatePublishers)
+    }
+
+    func getTipAmount(bill: Double, tip: Tip) -> Double {
+        switch tip {
+        case .none:
+            return 0
+        case .tenPercent:
+            return bill * 0.10
+        case .fiftenPercent:
+            return bill * 0.15
+        case .twentyPercent:
+            return bill * 0.20
+        case .custom(let value):
+            return value.doubleValue
+
+        }
     }
 
 }

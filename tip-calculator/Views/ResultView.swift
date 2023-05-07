@@ -8,6 +8,7 @@
 import UIKit
 import SnapKit
 import SwiftUI
+import Combine
 
 class ResultView: UIView {
 
@@ -17,7 +18,7 @@ class ResultView: UIView {
     }()
 
     private let billLabel: UILabel = {
-        let text = NSMutableAttributedString.init(string: "$000", attributes: [.font: AppFont.bold(ofSize: 48)])
+        let text = NSMutableAttributedString.init(string: "$0", attributes: [.font: AppFont.bold(ofSize: 48)])
         text.addAttributes([ .font : AppFont.bold(ofSize: 30) ], range: NSMakeRange(0, 1))
         return LabelFactory.build(attributedText: text, alignment: .center)
     }()
@@ -28,11 +29,14 @@ class ResultView: UIView {
         return view
     }()
 
+    private let totalBillView = AmountView(title: "Total bill", textAlignment: .left)
+    private let totalTipView = AmountView(title: "Total tip", textAlignment: .right)
+
     private lazy var hStackView: UIStackView = {
         let sv = UIStackView(arrangedSubviews: [
-            AmountView(title: "Total bill", textAlignment: .left),
+            totalBillView,
             UIView(),
-            AmountView(title: "Total tip", textAlignment: .right)
+            totalTipView
         ])
         sv.axis = .horizontal
         sv.distribution = .fillEqually
@@ -55,14 +59,39 @@ class ResultView: UIView {
         return sv
     }()
 
+    private var resultSubject: PassthroughSubject<ResultTip, Never> = .init()
+    var resultPublisher: AnyPublisher<ResultTip, Never> {
+        return resultSubject.eraseToAnyPublisher()
+    }
+
+    private var cancellable = Set<AnyCancellable>()
 
     override init(frame: CGRect) {
         super.init(frame: frame)
         layout()
+        observe()
     }
 
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+
+    private func observe() {
+        self.resultSubject.sink { [weak self] resultTip in
+            self?.configure(result: resultTip)
+        }.store(in: &cancellable)
+    }
+
+    func configure(result: ResultTip) {
+
+        // total p/person
+        let personPerTotalBill = NSMutableAttributedString.init(string: "$\(result.totalTipPerPerson)", attributes: [.font: AppFont.bold(ofSize: 48)])
+        personPerTotalBill.addAttributes([ .font : AppFont.bold(ofSize: 30) ], range: NSMakeRange(0, 1))
+        self.billLabel.attributedText = personPerTotalBill
+
+        self.totalBillView.configure(amount: result.totalBill)
+
+        self.totalTipView.configure(amount: result.totalTip)
     }
 
     private func layout() {
