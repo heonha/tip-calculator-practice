@@ -7,16 +7,50 @@
 
 import UIKit
 import SnapKit
+import Combine
+import CombineCocoa
 
 class SplitInputView: UIView {
 
     private let headerView = HeaderView(topTitle: "Split", bottomTitle: "the total")
 
-    var score: Int = 1
+    private var score: Int = 1
 
-    private lazy var minusButton = buildSplitButton(title: "-")
-    private lazy var plusButton = buildSplitButton(title: "+")
-    private lazy var scoreLabel: UILabel = LabelFactory.build(text: "\(score)", font: AppFont.bold(ofSize: 20))
+    private var cancellable = Set<AnyCancellable>()
+
+    private lazy var minusButton = {
+        let button = buildSplitButton(title: "-")
+        button.tapPublisher.flatMap { [unowned self] _ in
+            Just(self.splitSubject.value == 1 ? 1 : self.splitSubject.value - 1 )
+        }
+        .assign(to: \.value, on: splitSubject)
+        .store(in: &cancellable)
+
+        return button
+    }()
+
+    private lazy var plusButton = {
+        let button = buildSplitButton(title: "+")
+        button.tapPublisher.sink { [unowned self] _ in
+            let score = splitSubject.value + 1
+            self.splitSubject.send(score)
+        }.store(in: &cancelables)
+
+        return button
+    }()
+
+    private lazy var scoreLabel: UILabel = {
+        let label = LabelFactory.build(text: "\(splitSubject.value)",
+                                       font: AppFont.bold(ofSize: 20))
+
+        self.splitPublisher.sink { [unowned self] score in
+            label.text = score.stringValue
+        }.store(in: &cancelables)
+
+        return label
+    }()
+
+
 
     private lazy var hStackView: UIStackView = {
         let sv = UIStackView(arrangedSubviews: [minusButton, scoreLabel, plusButton])
@@ -34,9 +68,17 @@ class SplitInputView: UIView {
             make.width.equalTo(68)
         }
 
-
         return sv
     }()
+
+    private var splitSubject: CurrentValueSubject<Int, Never> = .init(1)
+    var splitPublisher: AnyPublisher<Int, Never> {
+        return splitSubject
+            .removeDuplicates()
+            .eraseToAnyPublisher()
+    }
+
+    private var cancelables = Set<AnyCancellable>()
 
     override init(frame: CGRect) {
         super.init(frame: frame)

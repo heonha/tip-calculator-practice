@@ -53,7 +53,7 @@ class CalculatorVC: UIViewController {
         let input = CalculatorVM.Input(
             billPublisher: billInputView.textFieldPublisher,
             tipPublisher: tipInputView.valuePublisher,
-            splitPublisher: Just(5).eraseToAnyPublisher())
+            splitPublisher: splitInputView.splitPublisher)
 
         let output = vm.transform(input: input)
         output.updateViewController.sink { result in

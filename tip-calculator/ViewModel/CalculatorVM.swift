@@ -23,7 +23,7 @@ class CalculatorVM {
     private var cancellables = Set<AnyCancellable>()
 
     func transform(input: Input) -> Output {
-        input.tipPublisher.sink { value in
+        input.splitPublisher.sink { value in
             print("VM received Value: \(value)")
         }.store(in: &cancellables)
 
