@@ -18,6 +18,7 @@
 		393AF1102A065EB100F913CF /* ResultTip.swift in Sources */ = {isa = PBXBuildFile; fileRef = 393AF10F2A065EB100F913CF /* ResultTip.swift */; };
 		393AF1132A06703400F913CF /* CombineCocoa in Frameworks */ = {isa = PBXBuildFile; productRef = 393AF1122A06703400F913CF /* CombineCocoa */; };
 		393AF1172A06722400F913CF /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 393AF1162A06722400F913CF /* String+Extension.swift */; };
+		393AF1192A07A0F100F913CF /* UIResponder+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 393AF1182A07A0F100F913CF /* UIResponder+Extension.swift */; };
 		396B236529FE5FFD009CD810 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 396B236429FE5FFD009CD810 /* AppDelegate.swift */; };
 		396B236729FE5FFD009CD810 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 396B236629FE5FFD009CD810 /* SceneDelegate.swift */; };
 		396B236929FE5FFD009CD810 /* CalculatorVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 396B236829FE5FFD009CD810 /* CalculatorVC.swift */; };
@@ -46,6 +47,7 @@
 		393AF10D2A063E0F00F913CF /* result-ui.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "result-ui.png"; sourceTree = "<group>"; };
 		393AF10F2A065EB100F913CF /* ResultTip.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultTip.swift; sourceTree = "<group>"; };
 		393AF1162A06722400F913CF /* String+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extension.swift"; sourceTree = "<group>"; };
+		393AF1182A07A0F100F913CF /* UIResponder+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIResponder+Extension.swift"; sourceTree = "<group>"; };
 		396B236129FE5FFD009CD810 /* tip-calculator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "tip-calculator.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		396B236429FE5FFD009CD810 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		396B236629FE5FFD009CD810 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -185,6 +187,7 @@
 				39F9F3592A01455D005286C4 /* UIColor+Extension.swift */,
 				393AF0FF2A04F1B600F913CF /* UIView+Extension.swift */,
 				393AF1162A06722400F913CF /* String+Extension.swift */,
+				393AF1182A07A0F100F913CF /* UIResponder+Extension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -286,6 +289,7 @@
 				39F9F35A2A01455D005286C4 /* UIColor+Extension.swift in Sources */,
 				393AF1042A05239100F913CF /* HeaderView.swift in Sources */,
 				39F9F34E2A01383D005286C4 /* BillInputView.swift in Sources */,
+				393AF1192A07A0F100F913CF /* UIResponder+Extension.swift in Sources */,
 				39F9F34C2A01382D005286C4 /* ResultView.swift in Sources */,
 				396B236529FE5FFD009CD810 /* AppDelegate.swift in Sources */,
 				39F9F3552A0144B0005286C4 /* AppFont.swift in Sources */,

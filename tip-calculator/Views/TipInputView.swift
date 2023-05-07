@@ -50,7 +50,20 @@ class TipInputView: UIView {
     }()
 
     private lazy var customTipButton: UIButton = {
-        let button = buildTipButton(tip: .custom(value: 0))
+        var attrString = NSMutableAttributedString(string: "Custom tip",
+                                                   attributes: [
+                                                    .font: AppFont.bold(ofSize: 20),
+                                                    .foregroundColor: UIColor.white
+                                                   ])
+
+        let button = UIButton()
+        button.backgroundColor = AppColor.primary
+        button.setAttributedTitle(attrString, for: .normal)
+        button.addCornerRadius(radius: 8)
+        button.tapPublisher
+            .sink { [weak self] _ in
+            self?.customTapHandler()
+            }.store(in: &cancellables)
         return button
     }()
 
@@ -113,21 +126,12 @@ class TipInputView: UIView {
 
     private func buildTipButton(tip: Tip) -> UIButton {
 
-        var attrString: NSMutableAttributedString
-        if tip.stringValue.contains("%") {
-            attrString = NSMutableAttributedString(string: tip.stringValue,
+        var attrString = NSMutableAttributedString(string: tip.stringValue,
                                                    attributes: [
                                                     .font: AppFont.bold(ofSize: 20),
                                                     .foregroundColor: UIColor.white
                                                    ])
             attrString.addAttributes([.font: AppFont.regular(ofSize: 14)], range: NSMakeRange(2, 1))
-        } else {
-            attrString = NSMutableAttributedString(string: "Custom tip",
-                                                   attributes: [
-                                                    .font: AppFont.bold(ofSize: 20),
-                                                    .foregroundColor: UIColor.white
-                                                   ])
-        }
 
         let button = UIButton()
         button.backgroundColor = AppColor.primary
@@ -135,6 +139,29 @@ class TipInputView: UIView {
         button.addCornerRadius(radius: 8)
 
         return button
+    }
+
+    func customTapHandler() {
+        let alertController = UIAlertController(
+            title: "Tip을 입력하세요.",
+            message: nil,
+            preferredStyle: .alert)
+        alertController.addTextField { textField in
+            textField.placeholder = "팁 비율 입력"
+            textField.keyboardType = .numberPad
+        }
+
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel)
+        let applyAction = UIAlertAction(title: "Ok", style: .default) { [weak self] action in
+            guard let text = alertController.textFields?.first?.text, let tip = Int(text) else { return }
+
+            self?.tipSubject.send(Tip.custom(value: tip))
+        }
+        [cancelAction, applyAction].forEach { alertController.addAction($0) }
+
+        self.parentViewController?.present(alertController, animated: true)
+
+
     }
 
 }
