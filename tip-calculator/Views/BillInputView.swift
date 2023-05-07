@@ -76,6 +76,7 @@ class BillInputView: UIView {
             self?.textFieldSubject.send(value?.doubleValue ?? 0.0)
         }
         .store(in: &cancellables)
+
     }
 
     private func layout() {
