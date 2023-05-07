@@ -7,29 +7,55 @@
 
 import UIKit
 import SnapKit
+import Combine
+import CombineCocoa
 
 class TipInputView: UIView {
 
     let headerView = HeaderView(topTitle: "Choose", bottomTitle: "your tip")
 
     private lazy var tenPercentButton: UIButton = {
-        return buildTipButton(tip: .tenPercent)
+        let button = buildTipButton(tip: .tenPercent)
+        button.tapPublisher
+            .flatMap {
+                Just(Tip.tenPercent)
+            }
+            .assign(to: \.value, on: tipSubject)
+            .store(in: &cancellables)
+        return button
     }()
 
-    private lazy var fiftyPercentButton: UIButton = {
-        return buildTipButton(tip: .fiftenPercent)
+    private lazy var fiftenButton: UIButton = {
+        let button = buildTipButton(tip: .fiftenPercent)
+        button.tapPublisher
+            .flatMap {
+                Just(Tip.fiftenPercent)
+            }
+            .assign(to: \.value, on: tipSubject)
+            .store(in: &cancellables)
+        return button
+
     }()
 
     private lazy var twentyPercentButton: UIButton = {
-        return buildTipButton(tip: .twentyPercent)
+        let button = buildTipButton(tip: .twentyPercent)
+        button.tapPublisher
+            .flatMap {
+                Just(Tip.twentyPercent)
+            }
+            .assign(to: \.value, on: tipSubject)
+            .store(in: &cancellables)
+        return button
+
     }()
 
     private lazy var customTipButton: UIButton = {
-        return buildTipButton(tip: .custom(value: 0))
+        let button = buildTipButton(tip: .custom(value: 0))
+        return button
     }()
 
     private lazy var buttonContainerView: UIStackView = {
-        let hStackView = UIStackView(arrangedSubviews: [tenPercentButton, fiftyPercentButton, twentyPercentButton])
+        let hStackView = UIStackView(arrangedSubviews: [tenPercentButton, fiftenButton, twentyPercentButton])
         hStackView.axis = .horizontal
         hStackView.distribution = .fillEqually
         hStackView.spacing = 8
@@ -43,6 +69,14 @@ class TipInputView: UIView {
         return vStackView
     }()
 
+    private var tipSubject: CurrentValueSubject<Tip, Never> = .init(Tip.none)
+    var valuePublisher: AnyPublisher<Tip, Never> {
+        return tipSubject.eraseToAnyPublisher()
+    }
+
+    private var cancellables = Set<AnyCancellable>()
+
+    // MARK: - Init
     override init(frame: CGRect) {
         super.init(frame: frame)
         layout()
@@ -50,6 +84,10 @@ class TipInputView: UIView {
 
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+
+    private func observe() {
+
     }
 
     private func layout() {

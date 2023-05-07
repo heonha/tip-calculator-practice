@@ -29,7 +29,8 @@ class BillInputView: UIView {
         tf.setContentHuggingPriority(.defaultLow, for: .horizontal)
         tf.tintColor = AppColor.text
         tf.textColor = AppColor.text
-        tf.text = "123"
+        tf.placeholder = ""
+        tf.text = ""
 
         let toolBar = UIToolbar(frame: CGRect(x: 0, y: 0, width: frame.size.width, height: 36))
         toolBar.barStyle = .default
