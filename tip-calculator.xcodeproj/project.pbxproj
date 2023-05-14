@@ -145,6 +145,7 @@
 		396B236329FE5FFD009CD810 /* tip-calculator */ = {
 			isa = PBXGroup;
 			children = (
+				396F9CD32A10ABBD00F75FB3 /* New Group */,
 				393AF1142A06710900F913CF /* System */,
 				393AF1052A052F3A00F913CF /* Model */,
 				39F9F35B2A0151DB005286C4 /* Factory */,
@@ -160,6 +161,13 @@
 				396B237229FE5FFE009CD810 /* Info.plist */,
 			);
 			path = "tip-calculator";
+			sourceTree = "<group>";
+		};
+		396F9CD32A10ABBD00F75FB3 /* New Group */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "New Group";
 			sourceTree = "<group>";
 		};
 		39F9F3482A013811005286C4 /* Views */ = {

@@ -14,10 +14,12 @@ class CalculatorVM {
         let billPublisher: AnyPublisher<Double, Never>
         let tipPublisher: AnyPublisher<Tip, Never>
         let splitPublisher: AnyPublisher<Int, Never>
+        let logoTapPublisher: AnyPublisher<Void, Never>
     }
 
     struct Output {
         let updateViewController: AnyPublisher<ResultTip, Never>
+        let updateLogoView: AnyPublisher<Void, Never>
     }
 
     private var cancellables = Set<AnyCancellable>()
@@ -37,7 +39,10 @@ class CalculatorVM {
                 return Just(result)
             }.eraseToAnyPublisher()
 
-        return Output(updateViewController: updatePublishers)
+        let updateLogoPublisher = input.logoTapPublisher
+
+        return Output(updateViewController: updatePublishers,
+                      updateLogoView: updateLogoPublisher)
     }
 
     func getTipAmount(bill: Double, tip: Tip) -> Double {

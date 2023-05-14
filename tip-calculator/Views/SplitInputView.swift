@@ -121,4 +121,9 @@ class SplitInputView: UIView {
         return button
     }
 
+
+    func reset() {
+        self.splitSubject.send(1)
+    }
+
 }

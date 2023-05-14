@@ -116,5 +116,9 @@ class BillInputView: UIView {
         textField.endEditing(true)
     }
 
+    func reset() {
+        self.textField.text = ""
+    }
+
 }
 

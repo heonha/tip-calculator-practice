@@ -8,6 +8,7 @@
 import UIKit
 import Foundation
 import SnapKit
+import Combine
 
 class LogoView: UIView {
 
@@ -43,7 +44,7 @@ class LogoView: UIView {
 
 
     // Stacks
-    lazy var hStackView = {
+    private lazy var hStackView = {
         let sv = UIStackView(arrangedSubviews: [logoImageView, vStackView])
         sv.translatesAutoresizingMaskIntoConstraints = false
         sv.axis = .horizontal
@@ -69,11 +70,24 @@ class LogoView: UIView {
     }()
 
 
+    lazy var logoTapPublisher: AnyPublisher<Void, Never> = {
+        let tapGesture = UITapGestureRecognizer(target: self, action: nil)
+        tapGesture.numberOfTapsRequired = 2
+        self.addGestureRecognizer(tapGesture)
+
+        return tapGesture.tapPublisher.flatMap { _ in
+            Just(())
+        }.eraseToAnyPublisher()
+    }()
+
+    private var cancellable = Set<AnyCancellable>()
+
+
     override init(frame: CGRect) {
         super.init(frame: frame)
         addSubview(hStackView)
         layout()
-
+        configure()
     }
 
     required init?(coder: NSCoder) {
@@ -88,6 +102,12 @@ class LogoView: UIView {
         hStackView.snp.makeConstraints { make in
             make.centerX.centerY.equalToSuperview()
         }
+    }
+
+    func configure() {
+        logoTapPublisher.sink { _ in
+            print("Logo view tapped!")
+        }.store(in: &cancellable)
     }
 
 }

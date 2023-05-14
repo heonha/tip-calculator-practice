@@ -21,16 +21,6 @@ class CalculatorVC: UIViewController {
     private let vm = CalculatorVM()
     private var cancellable = Set<AnyCancellable>()
 
-    private lazy var logoViewTapGesturePublisher: AnyPublisher<Void, Never> = {
-        let tapGesture = UITapGestureRecognizer(target: self, action: nil)
-        tapGesture.numberOfTapsRequired = 2
-        logoView.addGestureRecognizer(tapGesture)
-
-        return tapGesture.tapPublisher.flatMap { _ in
-            Just(())
-        }.eraseToAnyPublisher()
-    }()
-
     private lazy var textFieldTapGesturePublisher: AnyPublisher<Void, Never> = {
         let tapGesture = UITapGestureRecognizer(target: self, action: nil)
         view.addGestureRecognizer(tapGesture)
@@ -73,11 +63,19 @@ class CalculatorVC: UIViewController {
         let input = CalculatorVM.Input(
             billPublisher: billInputView.textFieldPublisher,
             tipPublisher: tipInputView.valuePublisher,
-            splitPublisher: splitInputView.splitPublisher)
+            splitPublisher: splitInputView.splitPublisher,
+            logoTapPublisher: logoView.logoTapPublisher
+        )
 
         let output = vm.transform(input: input)
         output.updateViewController.sink { [weak self] result in
             self?.resultView.configure(result: result)
+        }.store(in: &cancellable)
+
+        output.updateLogoView.sink { [weak self] _ in
+            self?.resultView.configure(result: ResultTip(totalTipPerPerson: 0, totalBill: 0, totalTip: 0))
+            self?.billInputView.reset()
+            self?.splitInputView.reset()
         }.store(in: &cancellable)
     }
 
@@ -85,10 +83,6 @@ class CalculatorVC: UIViewController {
         textFieldTapGesturePublisher.sink { [unowned self] _ in
             view.endEditing(true)
         }.store(in: &cancellable)
-
-        logoViewTapGesturePublisher.sink { _ in
-            print("Logo view tapped!")
-        }.store(in: &cancellable)
-
     }
+
 }
