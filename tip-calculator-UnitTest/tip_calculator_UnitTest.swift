@@ -146,8 +146,3 @@ class MockAudioPlayerService: AudioPlayerService {
 
 
 }
-
-// bill/p = $100
-// total bill $100
-// total tip $0
-// split person 1
