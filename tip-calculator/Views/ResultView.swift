@@ -85,7 +85,7 @@ class ResultView: UIView {
     func configure(result: ResultTip) {
 
         // total p/person
-        let personPerTotalBill = NSMutableAttributedString.init(string: "$\(result.totalTipPerPerson)", attributes: [.font: AppFont.bold(ofSize: 48)])
+        let personPerTotalBill = NSMutableAttributedString.init(string: "$\(result.totalBillPerPerson)", attributes: [.font: AppFont.bold(ofSize: 48)])
         personPerTotalBill.addAttributes([ .font : AppFont.bold(ofSize: 30) ], range: NSMakeRange(0, 1))
         self.billLabel.attributedText = personPerTotalBill
 
@@ -128,7 +128,7 @@ class ResultView: UIView {
     }
 
     func reset() {
-        self.resultSubject.send(ResultTip(totalTipPerPerson: 0, totalBill: 0, totalTip: 0))
+        self.resultSubject.send(ResultTip(totalBillPerPerson: 0, totalBill: 0, totalTip: 0))
     }
 
 

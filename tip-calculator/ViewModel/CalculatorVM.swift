@@ -41,7 +41,7 @@ class CalculatorVM {
                 let totalTip = getTipAmount(bill: bill, tip: tip)
                 let totalBill = bill + totalTip
                 let personPerBill = totalBill / split.doubleValue
-                let result = ResultTip(totalTipPerPerson: personPerBill, totalBill: totalBill, totalTip: totalTip)
+                let result = ResultTip(totalBillPerPerson: personPerBill, totalBill: totalBill, totalTip: totalTip)
 
                 return Just(result)
             }.eraseToAnyPublisher()
