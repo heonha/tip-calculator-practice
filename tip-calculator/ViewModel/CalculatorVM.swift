@@ -24,9 +24,9 @@ class CalculatorVM {
 
     private var cancellables = Set<AnyCancellable>()
 
-    private let audioPlayer: DefaultAudioPlayer
+    private let audioPlayer: AudioPlayerService
 
-    init(audioPlayer: DefaultAudioPlayer = DefaultAudioPlayer()) {
+    init(audioPlayer: AudioPlayerService = DefaultAudioPlayer()) {
         self.audioPlayer = audioPlayer // 종속성 주입.
     }
 

@@ -8,11 +8,11 @@
 import Foundation
 import AVFoundation
 
-protocol AudioPlayerProtocol {
+protocol AudioPlayerService {
     func playSound()
 }
 
-final class DefaultAudioPlayer: AudioPlayerProtocol {
+final class DefaultAudioPlayer: AudioPlayerService {
 
     private var player: AVAudioPlayer?
 
