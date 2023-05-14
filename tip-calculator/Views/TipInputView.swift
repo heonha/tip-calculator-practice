@@ -199,8 +199,10 @@ class TipInputView: UIView {
                                                    ])
         customTipButton.setAttributedTitle(attrString, for: .normal)
         customTipButton.backgroundColor = AppColor.primary
+    }
 
-
+    func reset() {
+        self.tipSubject.send(.none)
     }
 
 }

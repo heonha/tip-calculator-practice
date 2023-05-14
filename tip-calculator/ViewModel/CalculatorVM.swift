@@ -24,6 +24,13 @@ class CalculatorVM {
 
     private var cancellables = Set<AnyCancellable>()
 
+    private let audioPlayer: DefaultAudioPlayer
+
+    init(audioPlayer: DefaultAudioPlayer = DefaultAudioPlayer()) {
+        self.audioPlayer = audioPlayer // 종속성 주입.
+    }
+
+
     func transform(input: Input) -> Output {
 
         let updatePublishers = Publishers.CombineLatest3(
@@ -40,6 +47,11 @@ class CalculatorVM {
             }.eraseToAnyPublisher()
 
         let updateLogoPublisher = input.logoTapPublisher
+            .handleEvents(receiveOutput: { [unowned self] _ in
+                self.audioPlayer.playSound()
+            }).flatMap {
+                return Just(())
+            }.eraseToAnyPublisher()
 
         return Output(updateViewController: updatePublishers,
                       updateLogoView: updateLogoPublisher)

@@ -117,6 +117,7 @@ class BillInputView: UIView {
     }
 
     func reset() {
+        self.textFieldSubject.send(0)
         self.textField.text = ""
     }
 

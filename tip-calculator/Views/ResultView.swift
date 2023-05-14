@@ -127,6 +127,10 @@ class ResultView: UIView {
         return view
     }
 
+    func reset() {
+        self.resultSubject.send(ResultTip(totalTipPerPerson: 0, totalBill: 0, totalTip: 0))
+    }
+
 
 }
 

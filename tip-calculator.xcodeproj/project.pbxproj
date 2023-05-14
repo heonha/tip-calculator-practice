@@ -26,6 +26,8 @@
 		396B236929FE5FFD009CD810 /* CalculatorVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 396B236829FE5FFD009CD810 /* CalculatorVC.swift */; };
 		396B236E29FE5FFE009CD810 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 396B236D29FE5FFE009CD810 /* Assets.xcassets */; };
 		396B237129FE5FFE009CD810 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 396B236F29FE5FFE009CD810 /* LaunchScreen.storyboard */; };
+		396F9CD52A10ABF400F75FB3 /* DefaultAudioPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 396F9CD42A10ABF400F75FB3 /* DefaultAudioPlayer.swift */; };
+		396F9CD82A10CCF400F75FB3 /* click.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 396F9CD72A10AC0D00F75FB3 /* click.m4a */; };
 		39F9F3472A01314E005286C4 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 39F9F3462A01314E005286C4 /* SnapKit */; };
 		39F9F34A2A013817005286C4 /* LogoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39F9F3492A013817005286C4 /* LogoView.swift */; };
 		39F9F34C2A01382D005286C4 /* ResultView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39F9F34B2A01382D005286C4 /* ResultView.swift */; };
@@ -59,6 +61,8 @@
 		396B236D29FE5FFE009CD810 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		396B237029FE5FFE009CD810 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		396B237229FE5FFE009CD810 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		396F9CD42A10ABF400F75FB3 /* DefaultAudioPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultAudioPlayer.swift; sourceTree = "<group>"; };
+		396F9CD72A10AC0D00F75FB3 /* click.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = click.m4a; sourceTree = "<group>"; };
 		39F9F3492A013817005286C4 /* LogoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogoView.swift; sourceTree = "<group>"; };
 		39F9F34B2A01382D005286C4 /* ResultView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultView.swift; sourceTree = "<group>"; };
 		39F9F34D2A01383D005286C4 /* BillInputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BillInputView.swift; sourceTree = "<group>"; };
@@ -145,7 +149,8 @@
 		396B236329FE5FFD009CD810 /* tip-calculator */ = {
 			isa = PBXGroup;
 			children = (
-				396F9CD32A10ABBD00F75FB3 /* New Group */,
+				396F9CD62A10ABFB00F75FB3 /* Resource */,
+				396F9CD32A10ABBD00F75FB3 /* Service */,
 				393AF1142A06710900F913CF /* System */,
 				393AF1052A052F3A00F913CF /* Model */,
 				39F9F35B2A0151DB005286C4 /* Factory */,
@@ -163,11 +168,20 @@
 			path = "tip-calculator";
 			sourceTree = "<group>";
 		};
-		396F9CD32A10ABBD00F75FB3 /* New Group */ = {
+		396F9CD32A10ABBD00F75FB3 /* Service */ = {
 			isa = PBXGroup;
 			children = (
+				396F9CD42A10ABF400F75FB3 /* DefaultAudioPlayer.swift */,
 			);
-			path = "New Group";
+			path = Service;
+			sourceTree = "<group>";
+		};
+		396F9CD62A10ABFB00F75FB3 /* Resource */ = {
+			isa = PBXGroup;
+			children = (
+				396F9CD72A10AC0D00F75FB3 /* click.m4a */,
+			);
+			path = Resource;
 			sourceTree = "<group>";
 		};
 		39F9F3482A013811005286C4 /* Views */ = {
@@ -283,6 +297,7 @@
 				393AF10E2A063E0F00F913CF /* result-ui.png in Resources */,
 				396B237129FE5FFE009CD810 /* LaunchScreen.storyboard in Resources */,
 				396B236E29FE5FFE009CD810 /* Assets.xcassets in Resources */,
+				396F9CD82A10CCF400F75FB3 /* click.m4a in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -298,6 +313,7 @@
 				396B236929FE5FFD009CD810 /* CalculatorVC.swift in Sources */,
 				393AF10A2A063D1800F913CF /* CalculatorVM.swift in Sources */,
 				39F9F3572A0144FD005286C4 /* AppColor.swift in Sources */,
+				396F9CD52A10ABF400F75FB3 /* DefaultAudioPlayer.swift in Sources */,
 				393AF1002A04F1B600F913CF /* UIView+Extension.swift in Sources */,
 				39F9F34A2A013817005286C4 /* LogoView.swift in Sources */,
 				39F9F35A2A01455D005286C4 /* UIColor+Extension.swift in Sources */,

@@ -73,8 +73,9 @@ class CalculatorVC: UIViewController {
         }.store(in: &cancellable)
 
         output.updateLogoView.sink { [weak self] _ in
-            self?.resultView.configure(result: ResultTip(totalTipPerPerson: 0, totalBill: 0, totalTip: 0))
+            self?.resultView.reset()
             self?.billInputView.reset()
+            self?.tipInputView.reset()
             self?.splitInputView.reset()
         }.store(in: &cancellable)
     }
